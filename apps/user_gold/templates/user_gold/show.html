@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Player Stats</title>
+    </head>
+    <body>
+	    <a  style='margin-left: 70px;' href='/home'>Home</a>
+    	<a href='/play' style='margin-left: 25px;'>Play</a>
+    	<a   style='margin-left: 25px;'href='/show'>My Stats</a>
+    	<a href='/leaderboard' style='margin-left: 25px;'>Leaderboard</a>
+    	<a href='/logout' style='margin-left: 700px;'>Logout</a>
+	    <h1 style='margin-left: 70px;'>{{user.name}}</h1>
+	    <table style='margin-left: 70px;'>
+	    	<tr>
+	    		<th>Current Gold: {{user.gold}}</th>
+	    	</tr>
+	    </table>
+	    <h3 style='margin-left: 70px; margin-top: 50px;'>Activities</h3>
+	    <div style='overflow:auto; outline: thin solid black; height: 400px; width: 1050px; margin-left: 70px; margin-top: 20px'>
+			{% for activity in activities %}
+				<div>{{activity.description}}, {{activity.created_at}}</div>
+			{% endfor %}
+		</div>
+    </body>
+</html>

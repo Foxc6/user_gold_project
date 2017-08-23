@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>All Users</title>
+    </head>
+    <body>
+
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <p style='color:red;'>{{message}}</p>
+            {% endif %}
+            {% if message.tags == 'success' %}
+                <p style='color:green;'>{{message}}</p>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+        <h3 style='margin-left: 70px;'>Please Register</h3>
+        <div style='margin-left: 70px;'>
+            <form action='/register' method='post'>
+                {% csrf_token %}
+                <input type='text', name='name' placeholder='Enter your name'><br>
+                <input type='text', name='email' placeholder='Enter your email'><br>
+                <input type='text', name='password' placeholder='Enter a password'><br>
+                <input type='text', name='c_password' placeholder='Confirm password'><br>
+                <input type='submit', value='Click here to register'>
+            </form>
+        </div>
+
+        <h3 style='margin-left: 70px;'>Login</h3>
+        <div style='margin-left: 70px;'>
+            <form action='/login' method='post'>
+                {% csrf_token %}
+                <input type='text', name='email' placeholder='Enter your email'><br>
+                <input type='text', name='password' placeholder='Enter a password'><br>
+                <input type='submit', value='Click here to login'>
+            </form>
+        </div>
+    </body>
+</html>
